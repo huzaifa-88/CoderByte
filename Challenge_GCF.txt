@@ -1,0 +1,25 @@
+class MainClass {
+
+  public static string StringChallenge(string sen) {
+
+    // code goes here
+    sen = Regex.Replace(sen, @"[^\w\s]", "");
+    string[] words = sen.Split(new char[] {' '}, StringSplitOptions.RemoveEmptyEntries);
+    int max_length = 0;
+    string longestWord = "";
+    foreach(string word in words){
+      if(word.Length > max_length){
+        longestWord = word;
+        max_length = word.Length;
+      }
+    } 
+    return longestWord;
+
+  }
+
+  static void Main() {  
+    Console.WriteLine(StringChallenge(Console.ReadLine()));
+    
+  } 
+
+}
